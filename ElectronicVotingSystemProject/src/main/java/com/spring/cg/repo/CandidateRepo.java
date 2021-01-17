@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
 import com.spring.cg.entity.CandidateEntity;
 
@@ -25,6 +26,8 @@ public interface CandidateRepo extends JpaRepository<CandidateEntity, Integer>{
 	
 	@Query("Select distinct c.candidateName from CandidateEntity c")
 	List<String> getByCandidateName();
+
+	
 
 }
  

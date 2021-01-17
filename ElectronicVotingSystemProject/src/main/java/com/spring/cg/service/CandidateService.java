@@ -2,6 +2,9 @@ package com.spring.cg.service;
 
 import java.util.List;
 
+import com.spring.cg.exception.AlreadyExistEmailAndNumberException;
+import com.spring.cg.exception.AlreadyExistEmailException;
+import com.spring.cg.exception.AlreadyExistNumberException;
 import com.spring.cg.exception.CandidateNotFoundException;
 import com.spring.cg.exception.RecordNotFoundException;
 import com.spring.cg.json.Candidate;
@@ -10,7 +13,7 @@ import com.spring.cg.json.Party;
 public interface CandidateService {
 	
 	
-	public Candidate createCandidate(Candidate candidate);
+	public Candidate createCandidate(Candidate candidate) throws AlreadyExistEmailException, AlreadyExistNumberException, AlreadyExistEmailAndNumberException;
 	
 	public List<Candidate> getAllCandidates() throws RecordNotFoundException;
 	

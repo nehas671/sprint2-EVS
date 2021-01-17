@@ -12,6 +12,9 @@ import org.springframework.stereotype.Service;
 import com.spring.cg.Myproperties;
 import com.spring.cg.entity.CandidateEntity;
 import com.spring.cg.entity.PartyEntity;
+import com.spring.cg.exception.AlreadyExistEmailAndNumberException;
+import com.spring.cg.exception.AlreadyExistEmailException;
+import com.spring.cg.exception.AlreadyExistNumberException;
 import com.spring.cg.exception.CandidateNotFoundException;
 import com.spring.cg.exception.RecordNotFoundException;
 import com.spring.cg.json.Candidate;
@@ -38,7 +41,24 @@ public class CandidateServiceImpl implements CandidateService {
 	 * -----------------------------------------------  METHOD TO CREATE NEW CANDIDATE --------------------------------------------------------------------------------------
 	 **/
 	@Override
-	public Candidate createCandidate(Candidate candidate) {
+	public Candidate createCandidate(Candidate candidate) throws AlreadyExistEmailException, AlreadyExistNumberException, AlreadyExistEmailAndNumberException{
+		List<CandidateEntity> candidateEntityEmailCheck = candidateRepo.findByEmail(candidate.getEmail());
+		List<CandidateEntity> candidateEntityNumberCheck = candidateRepo.findByContactNumber(candidate.getContactNumber());
+		if(!candidateEntityEmailCheck.isEmpty()||!candidateEntityNumberCheck.isEmpty()) {
+			if(!candidateEntityEmailCheck.isEmpty()&& !candidateEntityNumberCheck.isEmpty())
+				throw new AlreadyExistEmailAndNumberException("Number and Email AlreadyExist");
+			else if(!candidateEntityNumberCheck.isEmpty())
+				throw new AlreadyExistNumberException("Mobile Number Already Exists");
+			else throw new AlreadyExistEmailException("Email Id Already Exists");
+				
+				
+		}
+	/*	else if(!candidateEntityNumberCheck.isEmpty()){
+			throw new AlreadyExistNumberException("Mobile Number Already Exists");
+		} */
+		
+		
+		else{
 		Optional<PartyEntity> partyOptional = partyRepo.findByPartyName(candidate.getParty().getPartyName());
 		if(partyOptional.isPresent()) {
 			PartyEntity partyEntity = partyOptional.get();
@@ -50,6 +70,7 @@ public class CandidateServiceImpl implements CandidateService {
 		}
 		return null;
 		}
+	}
 
 	
 	
@@ -250,6 +271,7 @@ public class CandidateServiceImpl implements CandidateService {
 	 */
 	@Override
 	public List<String> getPartyName() {
+		
 		return partyRepo.getByPartyName();
 	}
 
@@ -259,7 +281,7 @@ public class CandidateServiceImpl implements CandidateService {
 	 */
 
 	@Override
-	public List<String> getEmail() {
+	public List<String> getEmail(){
 		return candidateRepo.getByEmail();
 	}
 

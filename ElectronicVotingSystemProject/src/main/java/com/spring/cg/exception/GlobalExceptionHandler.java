@@ -24,7 +24,42 @@ import com.spring.cg.exception.UserNotFoundException;
 @RestControllerAdvice
 public class GlobalExceptionHandler extends ResponseEntityExceptionHandler{
 	
+	@ExceptionHandler(value = {AlreadyExistEmailAndNumberException .class})
+	public ResponseEntity<ErrorMessage> handleAlreadyExistEmailAndNumberException(
+			AlreadyExistEmailAndNumberException ex) {
+		String error = "Email Id And Mobile Number Already Exist! Cannot Enter Again!";
+
+		ErrorMessage errorMessage = 
+	      new ErrorMessage(HttpStatus.BAD_REQUEST, ex.toString(), error);
+	    return new ResponseEntity<ErrorMessage>(
+	    		errorMessage, new HttpHeaders(), errorMessage.getStatus());
+		
+	}
 	
+	@ExceptionHandler(value = {AlreadyExistEmailException .class})
+	public ResponseEntity<ErrorMessage> handleAlreadyExistEmailException(
+			AlreadyExistEmailException  ex) {
+		String error = "Email Id Already Exist! Cannot Enter Again!";
+
+		ErrorMessage errorMessage = 
+	      new ErrorMessage(HttpStatus.BAD_REQUEST, ex.toString(), error);
+	    return new ResponseEntity<ErrorMessage>(
+	    		errorMessage, new HttpHeaders(), errorMessage.getStatus());
+		
+	}
+	
+	
+	@ExceptionHandler(value = {AlreadyExistNumberException .class})
+	public ResponseEntity<ErrorMessage> handleAlreadyExistNumberException(
+			AlreadyExistNumberException ex) {
+		String error = "Mobile Number Already Exist! Cannot Enter Again!";
+
+		ErrorMessage errorMessage = 
+	      new ErrorMessage(HttpStatus.BAD_REQUEST, ex.toString(), error);
+	    return new ResponseEntity<ErrorMessage>(
+	    		errorMessage, new HttpHeaders(), errorMessage.getStatus());
+		
+	}
 
 	@ExceptionHandler(value = {InvalidDataException.class})
 	public ResponseEntity<ErrorMessage> handleInvalidDataException(

@@ -20,6 +20,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.spring.cg.Myproperties;
+import com.spring.cg.exception.AlreadyExistEmailAndNumberException;
+import com.spring.cg.exception.AlreadyExistEmailException;
+import com.spring.cg.exception.AlreadyExistNumberException;
 import com.spring.cg.exception.CandidateNotFoundException;
 import com.spring.cg.exception.RecordNotFoundException;
 import com.spring.cg.json.Candidate;
@@ -63,7 +66,8 @@ public class CandidateController {
 	})
       
 	@PostMapping(value="/candidate", consumes=MediaType.APPLICATION_JSON_VALUE, produces=MediaType.APPLICATION_JSON_VALUE) 
-	public ResponseEntity<Candidate> createNewCandidate(@Valid @RequestBody Candidate candidate) {
+	public ResponseEntity<Candidate> createNewCandidate(@Valid @RequestBody Candidate candidate) 
+			throws AlreadyExistEmailException, AlreadyExistNumberException, AlreadyExistEmailAndNumberException{
     	  logger.info("Creating Candidate :" +candidate);
 		return new ResponseEntity<Candidate>(candidateService.createCandidate(candidate), HttpStatus.OK);
 	}
