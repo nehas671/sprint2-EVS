@@ -1,0 +1,83 @@
+INFO  | 2020-12-25 14:19:07 | [main] boot.StartupInfoLogger (StartupInfoLogger.java:55) - Starting CgSpringBootDemoApplication using Java 15 on DESKTOP-VSNPFA5 with PID 11376 (C:\Users\User\git\Sprint2-ElectronicVotingSystem\ElectronicVotingSystem\target\classes started by User in C:\Users\User\git\Sprint2-ElectronicVotingSystem\ElectronicVotingSystem)
+DEBUG | 2020-12-25 14:19:07 | [main] boot.StartupInfoLogger (StartupInfoLogger.java:56) - Running with Spring Boot v2.4.1, Spring v5.3.2
+INFO  | 2020-12-25 14:19:07 | [main] boot.SpringApplication (SpringApplication.java:660) - No active profile set, falling back to default profiles: default
+ERROR | 2020-12-25 14:19:15 | [main] boot.SpringApplication (SpringApplication.java:856) - Application run failed
+org.springframework.context.ApplicationContextException: Failed to start bean 'documentationPluginsBootstrapper'; nested exception is java.lang.IllegalStateException: Multiple Dockets with the same group name are not supported. The following duplicate groups were discovered. default
+	at org.springframework.context.support.DefaultLifecycleProcessor.doStart(DefaultLifecycleProcessor.java:181) ~[spring-context-5.3.2.jar:5.3.2]
+	at org.springframework.context.support.DefaultLifecycleProcessor.access$200(DefaultLifecycleProcessor.java:54) ~[spring-context-5.3.2.jar:5.3.2]
+	at org.springframework.context.support.DefaultLifecycleProcessor$LifecycleGroup.start(DefaultLifecycleProcessor.java:356) ~[spring-context-5.3.2.jar:5.3.2]
+	at java.lang.Iterable.forEach(Iterable.java:75) ~[?:?]
+	at org.springframework.context.support.DefaultLifecycleProcessor.startBeans(DefaultLifecycleProcessor.java:155) ~[spring-context-5.3.2.jar:5.3.2]
+	at org.springframework.context.support.DefaultLifecycleProcessor.onRefresh(DefaultLifecycleProcessor.java:123) ~[spring-context-5.3.2.jar:5.3.2]
+	at org.springframework.context.support.AbstractApplicationContext.finishRefresh(AbstractApplicationContext.java:940) ~[spring-context-5.3.2.jar:5.3.2]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:591) ~[spring-context-5.3.2.jar:5.3.2]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:144) ~[spring-boot-2.4.1.jar:2.4.1]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:767) ~[spring-boot-2.4.1.jar:2.4.1]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:759) [spring-boot-2.4.1.jar:2.4.1]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:426) [spring-boot-2.4.1.jar:2.4.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:326) [spring-boot-2.4.1.jar:2.4.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1309) [spring-boot-2.4.1.jar:2.4.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1298) [spring-boot-2.4.1.jar:2.4.1]
+	at com.spring.cg.CgSpringBootDemoApplication.main(CgSpringBootDemoApplication.java:10) [classes/:?]
+Caused by: java.lang.IllegalStateException: Multiple Dockets with the same group name are not supported. The following duplicate groups were discovered. default
+	at springfox.documentation.spring.web.plugins.DuplicateGroupsDetector.ensureNoDuplicateGroups(DuplicateGroupsDetector.java:45) ~[springfox-spring-web-2.6.1.jar:2.6.1]
+	at springfox.documentation.spring.web.plugins.DocumentationPluginsManager.documentationPlugins(DocumentationPluginsManager.java:100) ~[springfox-spring-web-2.6.1.jar:2.6.1]
+	at springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper.start(DocumentationPluginsBootstrapper.java:122) ~[springfox-spring-web-2.6.1.jar:2.6.1]
+	at org.springframework.context.support.DefaultLifecycleProcessor.doStart(DefaultLifecycleProcessor.java:178) ~[spring-context-5.3.2.jar:5.3.2]
+	... 15 more
+INFO  | 2020-12-25 18:46:08 | [main] boot.StartupInfoLogger (StartupInfoLogger.java:55) - Starting CgSpringBootDemoApplication using Java 15 on DESKTOP-VSNPFA5 with PID 15872 (C:\Users\User\git\Sprint2-ElectronicVotingSystem\ElectronicVotingSystem\target\classes started by User in C:\Users\User\git\Sprint2-ElectronicVotingSystem\ElectronicVotingSystem)
+DEBUG | 2020-12-25 18:46:08 | [main] boot.StartupInfoLogger (StartupInfoLogger.java:56) - Running with Spring Boot v2.4.1, Spring v5.3.2
+INFO  | 2020-12-25 18:46:08 | [main] boot.SpringApplication (SpringApplication.java:660) - No active profile set, falling back to default profiles: default
+ERROR | 2020-12-25 18:46:15 | [main] boot.SpringApplication (SpringApplication.java:856) - Application run failed
+org.springframework.context.ApplicationContextException: Failed to start bean 'documentationPluginsBootstrapper'; nested exception is java.lang.IllegalStateException: Multiple Dockets with the same group name are not supported. The following duplicate groups were discovered. default
+	at org.springframework.context.support.DefaultLifecycleProcessor.doStart(DefaultLifecycleProcessor.java:181) ~[spring-context-5.3.2.jar:5.3.2]
+	at org.springframework.context.support.DefaultLifecycleProcessor.access$200(DefaultLifecycleProcessor.java:54) ~[spring-context-5.3.2.jar:5.3.2]
+	at org.springframework.context.support.DefaultLifecycleProcessor$LifecycleGroup.start(DefaultLifecycleProcessor.java:356) ~[spring-context-5.3.2.jar:5.3.2]
+	at java.lang.Iterable.forEach(Iterable.java:75) ~[?:?]
+	at org.springframework.context.support.DefaultLifecycleProcessor.startBeans(DefaultLifecycleProcessor.java:155) ~[spring-context-5.3.2.jar:5.3.2]
+	at org.springframework.context.support.DefaultLifecycleProcessor.onRefresh(DefaultLifecycleProcessor.java:123) ~[spring-context-5.3.2.jar:5.3.2]
+	at org.springframework.context.support.AbstractApplicationContext.finishRefresh(AbstractApplicationContext.java:940) ~[spring-context-5.3.2.jar:5.3.2]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:591) ~[spring-context-5.3.2.jar:5.3.2]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:144) ~[spring-boot-2.4.1.jar:2.4.1]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:767) ~[spring-boot-2.4.1.jar:2.4.1]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:759) [spring-boot-2.4.1.jar:2.4.1]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:426) [spring-boot-2.4.1.jar:2.4.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:326) [spring-boot-2.4.1.jar:2.4.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1309) [spring-boot-2.4.1.jar:2.4.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1298) [spring-boot-2.4.1.jar:2.4.1]
+	at com.spring.cg.CgSpringBootDemoApplication.main(CgSpringBootDemoApplication.java:10) [classes/:?]
+Caused by: java.lang.IllegalStateException: Multiple Dockets with the same group name are not supported. The following duplicate groups were discovered. default
+	at springfox.documentation.spring.web.plugins.DuplicateGroupsDetector.ensureNoDuplicateGroups(DuplicateGroupsDetector.java:45) ~[springfox-spring-web-2.6.1.jar:2.6.1]
+	at springfox.documentation.spring.web.plugins.DocumentationPluginsManager.documentationPlugins(DocumentationPluginsManager.java:100) ~[springfox-spring-web-2.6.1.jar:2.6.1]
+	at springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper.start(DocumentationPluginsBootstrapper.java:122) ~[springfox-spring-web-2.6.1.jar:2.6.1]
+	at org.springframework.context.support.DefaultLifecycleProcessor.doStart(DefaultLifecycleProcessor.java:178) ~[spring-context-5.3.2.jar:5.3.2]
+	... 15 more
+INFO  | 2020-12-25 18:46:43 | [main] boot.StartupInfoLogger (StartupInfoLogger.java:55) - Starting CgSpringBootDemoApplication using Java 15 on DESKTOP-VSNPFA5 with PID 3224 (C:\Users\User\git\Sprint2-ElectronicVotingSystem\ElectronicVotingSystem\target\classes started by User in C:\Users\User\git\Sprint2-ElectronicVotingSystem\ElectronicVotingSystem)
+DEBUG | 2020-12-25 18:46:43 | [main] boot.StartupInfoLogger (StartupInfoLogger.java:56) - Running with Spring Boot v2.4.1, Spring v5.3.2
+INFO  | 2020-12-25 18:46:43 | [main] boot.SpringApplication (SpringApplication.java:660) - No active profile set, falling back to default profiles: default
+INFO  | 2020-12-25 18:46:49 | [main] boot.StartupInfoLogger (StartupInfoLogger.java:61) - Started CgSpringBootDemoApplication in 7.425 seconds (JVM running for 8.985)
+INFO  | 2020-12-25 18:49:54 | [main] boot.StartupInfoLogger (StartupInfoLogger.java:55) - Starting CgSpringBootDemoApplication using Java 15 on DESKTOP-VSNPFA5 with PID 2528 (C:\Users\User\git\Sprint2-ElectronicVotingSystem\ElectronicVotingSystem\target\classes started by User in C:\Users\User\git\Sprint2-ElectronicVotingSystem\ElectronicVotingSystem)
+DEBUG | 2020-12-25 18:49:54 | [main] boot.StartupInfoLogger (StartupInfoLogger.java:56) - Running with Spring Boot v2.4.1, Spring v5.3.2
+INFO  | 2020-12-25 18:49:54 | [main] boot.SpringApplication (SpringApplication.java:660) - No active profile set, falling back to default profiles: default
+INFO  | 2020-12-25 18:50:01 | [main] boot.StartupInfoLogger (StartupInfoLogger.java:61) - Started CgSpringBootDemoApplication in 7.206 seconds (JVM running for 8.414)
+INFO  | 2020-12-25 19:09:11 | [main] boot.StartupInfoLogger (StartupInfoLogger.java:55) - Starting CgSpringBootDemoApplication using Java 15 on DESKTOP-VSNPFA5 with PID 10880 (C:\Users\User\git\Sprint2-ElectronicVotingSystem\ElectronicVotingSystem\target\classes started by User in C:\Users\User\git\Sprint2-ElectronicVotingSystem\ElectronicVotingSystem)
+DEBUG | 2020-12-25 19:09:11 | [main] boot.StartupInfoLogger (StartupInfoLogger.java:56) - Running with Spring Boot v2.4.1, Spring v5.3.2
+INFO  | 2020-12-25 19:09:11 | [main] boot.SpringApplication (SpringApplication.java:660) - No active profile set, falling back to default profiles: default
+ERROR | 2020-12-25 19:09:20 | [main] diagnostics.LoggingFailureAnalysisReporter (LoggingFailureAnalysisReporter.java:40) - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+INFO  | 2020-12-25 19:09:48 | [main] boot.StartupInfoLogger (StartupInfoLogger.java:55) - Starting CgSpringBootDemoApplication using Java 15 on DESKTOP-VSNPFA5 with PID 2112 (C:\Users\User\git\Sprint2-ElectronicVotingSystem\ElectronicVotingSystem\target\classes started by User in C:\Users\User\git\Sprint2-ElectronicVotingSystem\ElectronicVotingSystem)
+DEBUG | 2020-12-25 19:09:48 | [main] boot.StartupInfoLogger (StartupInfoLogger.java:56) - Running with Spring Boot v2.4.1, Spring v5.3.2
+INFO  | 2020-12-25 19:09:48 | [main] boot.SpringApplication (SpringApplication.java:660) - No active profile set, falling back to default profiles: default
+INFO  | 2020-12-25 19:09:55 | [main] boot.StartupInfoLogger (StartupInfoLogger.java:61) - Started CgSpringBootDemoApplication in 7.18 seconds (JVM running for 8.571)
