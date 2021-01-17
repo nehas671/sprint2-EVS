@@ -7,7 +7,7 @@ import com.spring.cg.json.VoterRequest;
 public class VoterRequestUtil {
 	
 	public static VoterRequestEntity convertVoterRequestIntoVoterRequestEntity(VoterRequest voterRequest) {
-		VoterRequestEntity voterRequestEntity = new VoterRequestEntity(voterRequest.getUserId(),voterRequest.getName(),
+		VoterRequestEntity voterRequestEntity = new VoterRequestEntity(voterRequest.getVoterId(),voterRequest.getName(),
 				voterRequest.getDistrict(),voterRequest.getConstituency(),voterRequest.getEmailId(),voterRequest.getApplicationStatus(),
 				voterRequest.getContactNumber(),voterRequest.getDob());
 		return voterRequestEntity;
@@ -15,7 +15,7 @@ public class VoterRequestUtil {
 	
 	
 	public static VoterRequest convertVoterRequestEntityIntoVoterRequest(VoterRequestEntity voterRequestEntity) {
-		VoterRequest voterRequest = new VoterRequest(voterRequestEntity.getUserId(),voterRequestEntity.getName(),voterRequestEntity.getEmailId(),voterRequestEntity.getDob(),
+		VoterRequest voterRequest = new VoterRequest(voterRequestEntity.getVoterId(),voterRequestEntity.getName(),voterRequestEntity.getEmailId(),voterRequestEntity.getDob(),
 				voterRequestEntity.getDistrict(),voterRequestEntity.getConstituency(),voterRequestEntity.getApplicationStatus(),
 				voterRequestEntity.getContactNumber());
 		

@@ -13,7 +13,7 @@ public class VoterRequest {
 
 	
 	@ApiModelProperty(value="User Id Of Voter")
-	private Long userId;
+	private int voterId;
 	
 	@NotNull
 	@NotBlank
@@ -52,10 +52,10 @@ public class VoterRequest {
 	}
 
 
-	public VoterRequest( Long userId, String name, String emailId, Date dob,
+	public VoterRequest( int voterId, String name, String emailId, Date dob,
 			 String district, String constituency, String applicationStatus,Long contactNumber) {
 		super();
-		this.userId = userId;
+		this.voterId = voterId;
 		this.name = name;
 		this.emailId = emailId;
 		this.dob = dob;
@@ -81,13 +81,13 @@ public class VoterRequest {
 
 
 
-	public Long getUserId() {
-		return userId;
+	public int getVoterId() {
+		return voterId;
 	}
 
 
-	public void setUserId(Long userId) {
-		this.userId = userId;
+	public void setVoterId(int voterId) {
+		this.voterId = voterId;
 	}
 
 
@@ -166,7 +166,7 @@ public class VoterRequest {
 
 	@Override
 	public String toString() {
-		return "VoterRequest [userId=" + userId + ", name=" + name + ", emailId=" + emailId + ", dob=" + dob
+		return "VoterRequest [voterId=" + voterId + ", name=" + name + ", emailId=" + emailId + ", dob=" + dob
 				+ ", district=" + district + ", constituency=" + constituency + ", applicationStatus="
 				+ applicationStatus + ", contactNumber=" + contactNumber + "]";
 	}

@@ -16,8 +16,8 @@ public class VoterRequestEntity {
 
 	@Id
 	@GeneratedValue
-	@Column(name="application_id")
-	private Long userId;
+	@Column(name="voter_id")
+	private int voterId;
 	
 	private String name;
 	
@@ -41,10 +41,10 @@ public class VoterRequestEntity {
 		super();
 	}
 
-	public VoterRequestEntity(Long userId, String name, String district, String constituency, String emailId,
+	public VoterRequestEntity(int voterId, String name, String district, String constituency, String emailId,
 			String applicationStatus, Long contactNumber, Date dob) {
 		super();
-		this.userId = userId;
+		this.voterId = voterId;
 		this.name = name;
 		this.district = district;
 		this.constituency = constituency;
@@ -67,12 +67,12 @@ public class VoterRequestEntity {
 		this.dob = dob;
 	}
 
-	public Long getUserId() {
-		return userId;
+	public int getVoterId() {
+		return voterId;
 	}
 
-	public void setUserId(Long userId) {
-		this.userId = userId;
+	public void setVoterId(int voterId) {
+		this.voterId = voterId;
 	}
 
 	public String getName() {
@@ -134,7 +134,7 @@ public class VoterRequestEntity {
 
 	@Override
 	public String toString() {
-		return "VoterRequestEntity [userId=" + userId + ", name=" + name + ", district=" + district + ", constituency="
+		return "VoterRequestEntity [voterId=" + voterId + ", name=" + name + ", district=" + district + ", constituency="
 				+ constituency + ", emailId=" + emailId + ", applicationStatus=" + applicationStatus
 				+ ", contactNumber=" + contactNumber + ", dob=" + dob + "]";
 	}
