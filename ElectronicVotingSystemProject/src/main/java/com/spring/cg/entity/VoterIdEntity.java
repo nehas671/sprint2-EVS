@@ -16,7 +16,10 @@ public class VoterIdEntity {
 	@Column(name = "application_id")
 
 	private Long user_id;*/
-
+	@Id
+	@Column(name = "voter_id")
+	@GeneratedValue
+	private Long voter_id;
 	@Column(name = "name")
 	private String name;
 
@@ -25,10 +28,7 @@ public class VoterIdEntity {
 
 	@Column(name = "constituency")
 	private String constituency;
-    @Id
-	@Column(name = "voter_id")
-	@GeneratedValue
-	private Long voter_id;
+    
 
 	@Column(name = "contact_no")
 	private double contact_no;

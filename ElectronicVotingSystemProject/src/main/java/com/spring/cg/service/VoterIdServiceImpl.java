@@ -35,8 +35,8 @@ public class VoterIdServiceImpl implements VoterIdService {
 		Optional<VoterIdEntity> entityList = voterRepo.findById(user);
 		if (entityList.isPresent()) {
 			VoterIdEntity voterEntity = entityList.get();
-			if (voterEntity.getStatus().toUpperCase().equals(properties.getLog().getPending())
-					|| voterEntity.getStatus().toUpperCase().equals(properties.getLog().getReject())) {
+			if (voterEntity.getStatus().equals(properties.getLog().getPending())
+					|| voterEntity.getStatus().equals(properties.getLog().getReject())) {
 				logger.error("User " + properties.getLog().getFail());
 				throw new UserNotFoundException("Application not approved");
 			}
@@ -68,7 +68,7 @@ public class VoterIdServiceImpl implements VoterIdService {
 
 	@Override
 	public List<VoterId> getByDistrict(String district) throws UserNotFoundException {
-		List<VoterIdEntity> entityList = voterRepo.findByDistrict(district.toLowerCase());
+		List<VoterIdEntity> entityList = voterRepo.findByDistrict(district);
 		if (entityList == null || entityList.isEmpty()) {
 			logger.error("Voter Requests " + properties.getLog().getFail());
 			throw new UserNotFoundException("No requests found for the district");
@@ -84,7 +84,7 @@ public class VoterIdServiceImpl implements VoterIdService {
 	 */
 	@Override
 	public List<VoterIdEntity> getByStatus(String status) throws UserNotFoundException {
-		List<VoterIdEntity> entityList = voterRepo.findByStatus(status.toLowerCase());
+		List<VoterIdEntity> entityList = voterRepo.findByStatus(status);
 		if (entityList == null || entityList.isEmpty()) {
 			logger.error("Voter Requests " + properties.getLog().getFail());
 			throw new UserNotFoundException("No requests found for the Status");
