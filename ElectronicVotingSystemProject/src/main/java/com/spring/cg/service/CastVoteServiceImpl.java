@@ -37,7 +37,7 @@ public class CastVoteServiceImpl implements CastVoteService
 	public CastVote createCastVote(CastVote castVote) throws AlreadyVotedException, CandidateNotFoundException 
 	{
 		int count=0;
-		List<CastVoteEntity> castVoteCandidateCheck = castVoteRepo.getAllCastVote(castVote.getElectionName(),castVote.getConstituency(),castVote.getDate());
+		List<CastVoteEntity> castVoteCandidateCheck = castVoteRepo.getAllCastVote(castVote.getElectionName().toUpperCase(),castVote.getConstituency().toUpperCase(),castVote.getDate());
 		for(CastVoteEntity cast:castVoteCandidateCheck)
 		{
 			if(!(castVote.getCandidateName().equalsIgnoreCase(cast.getCandidateName())))
@@ -60,7 +60,7 @@ public class CastVoteServiceImpl implements CastVoteService
 		if(count==1)
 		{
 			logger.info("Candidate was successfully found!");
-			List<CastVoteEntity> castVoteEntityList = castVoteRepo.findAll(castVote.getElectionName(),castVote.getConstituency(),castVote.getDate(),castVote.getVoterId());
+			List<CastVoteEntity> castVoteEntityList = castVoteRepo.findAll(castVote.getElectionName().toUpperCase(),castVote.getConstituency().toUpperCase(),castVote.getDate(),castVote.getVoterId());
 			if(castVoteEntityList.isEmpty())
 			{
 				logger.info("Casting vote successfully!");
@@ -82,7 +82,7 @@ public class CastVoteServiceImpl implements CastVoteService
 	
 	@Override
 	public List<CastVote> getCastVote(String election_name, String state, String constituency, LocalDate date) throws ElectionNotFoundException {
-		List<ElectionsEntity> election = electionRepo.findAll(election_name,state,constituency,date);
+		List<ElectionsEntity> election = electionRepo.findAll(election_name.toUpperCase(),state.toUpperCase(),constituency.toUpperCase(),date);
 		if(election.isEmpty())
 		{
 			logger.info("Entered election doesn't exist on given date!");
@@ -91,7 +91,7 @@ public class CastVoteServiceImpl implements CastVoteService
 		else
 		{
 			logger.info("Candidate List for given election is generated!");
-			return CastVoteUtil.convertCastVoteEntityListIntoCastVoteList(castVoteRepo.getAllCastVote(election_name,constituency,date));
+			return CastVoteUtil.convertCastVoteEntityListIntoCastVoteList(castVoteRepo.getAllCastVote(election_name.toUpperCase(),constituency.toUpperCase(),date));
 		}
 	}
 	
