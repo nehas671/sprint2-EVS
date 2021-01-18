@@ -112,7 +112,7 @@ public class VoterIdServiceImpl implements VoterIdService {
 		VoterIdEntity entityList=voterRepo.findByEmailId(emailId);
 		if (entityList!=null) {
 			if (entityList.getStatus().toUpperCase().equals(properties.getLog().getPending())
-					|| entityList.getStatus().toUpperCase().equals(properties.getLog().getReject())) {
+					|| entityList.getStatus().equals(properties.getLog().getRejected())) {
 			
 				logger.error("User " + properties.getLog().getFail());
 				throw new UserNotFoundException("Application not approved");
